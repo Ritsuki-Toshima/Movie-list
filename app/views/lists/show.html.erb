@@ -10,7 +10,7 @@
           <h2><%= bookmark.movie.title %></h2>
           <h2 class="card-trip-pricing">Rate: <%= bookmark.movie.rating %></h2>
           <p class="card-trip-pricing">Overview: <%= bookmark.movie.overview %></p>
-          <%= link_to "🗑️", bookmark_path, data: { turbo_method: :delete, turbo_confirm: "ほんまに消してええんか？" } %>
+          <%= link_to "🗑️", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "ほんまに消してええんか？" } %>
           <p>Comment</p>
           <br>
           <%= bookmark.comment %>
