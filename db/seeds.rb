@@ -24,4 +24,11 @@ response['results'].each do |movie_hash|
     title: movie_hash['title'],
     overview: movie_hash['overview']
   )
+
+  list_names = [ "Action", "Horror", "Romance", "Comedy", "Animation", "Sci-Fi", "釣りバカ日誌", "Handball", "Gorilla", "Ramen"]
+  list_names.each do |name|
+    List.create!(
+      name: name
+    )
+  end
 end
