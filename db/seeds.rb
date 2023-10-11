@@ -8,7 +8,7 @@
 
 require 'open-uri'
 Movie.destroy_all
-# List.destroy_all
+List.destroy_all
 
 # the Le Wagon copy of the API
 url = 'http://tmdb.lewagon.com/movie/top_rated'
@@ -19,16 +19,14 @@ response['results'].each do |movie_hash|
   p movie_hash
   # create an instance with the hash
   Movie.create!(
-    poster_url: "https://image.tmdb.org/t/p/w500" + movie_hash['poster_path'],
+    poster_url: 'https://image.tmdb.org/t/p/w500' + movie_hash['poster_path'],
     rating: movie_hash['vote_average'],
     title: movie_hash['title'],
     overview: movie_hash['overview']
   )
+end
 
-  list_names = [ "Action", "Horror", "Romance", "Comedy", "Animation", "Sci-Fi", "釣りバカ日誌", "Handball", "Gorilla", "Ramen"]
-  list_names.each do |name|
-    List.create!(
-      name: name
-    )
-  end
+list_names = %w[Action Romance Comedy Sci-Fi]
+list_names.each do |name|
+  List.create!(name: name)
 end
