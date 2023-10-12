@@ -1,9 +1,12 @@
 <%= render "layouts/header"%>
-<div class="container mt-4">
+<div class="container" style="height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
   <h1>Bookmark movies!</h1>
   <%= simple_form_for([@list, @bookmark]) do |f| %>
     <%= f.association :movie, class: "form-control"%>
     <%= f.input :comment, class: "form-controll" %>
-    <%= f.submit  class: "btn btn-primary"%>
+    <div class="d-flex mt-4 mb-4 text-center">
+      <%= link_to "Go back", list_path(@list), class: "btn hover-btn" %>
+      <%= f.submit "Bookmark", class: "btn hover-btn"%>
+    </div>
   <% end %>
 </div>

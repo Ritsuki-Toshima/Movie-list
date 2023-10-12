@@ -40,17 +40,17 @@
   transition: 0.6s;
 }
 
-.hover-btn:before {
-  width: 60px;
-  background: rgba(255, 255, 255, 0.6);
-  transform: translateX(-130px) skewX(-45deg);
-}
+// .hover-btn:before {
+//   width: 60px;
+//   background: rgba(255, 255, 255, 0.6);
+//   transform: translateX(-130px) skewX(-45deg);
+// }
 
-.hover-btn:after {
-  width: 30px;
-  background: rgba(255, 255, 255, 0.6);
-  transform: translateX(-130px) skewX(-45deg);
-}
+// .hover-btn:after {
+//   width: 30px;
+//   background: rgba(255, 255, 255, 0.6);
+//   transform: translateX(-130px) skewX(-45deg);
+// }
 
 .hover-btn:hover:before,
 .hover-btn:hover:after {

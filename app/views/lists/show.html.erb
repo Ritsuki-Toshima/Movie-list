@@ -1,9 +1,9 @@
 <%= render "layouts/header"%>
 <div class="container">
   <h1 style="margin-top: 80px;"><%= @list.name %> movies</h1>
-  <div>
+  <div class="mt-4 mb-4 text-center">
     <%= link_to "Go back", lists_path, class: "hover-btn" %>
-    <%= link_to "Bookmark", new_list_bookmark_path(@list), class: "hover-btn mb-3" %>
+    <%= link_to "Bookmark", new_list_bookmark_path(@list), class: "hover-btn" %>
   </div>
   <% @list.bookmarks.each do |bookmark| %>
     <div class="popular-movie-slider">
