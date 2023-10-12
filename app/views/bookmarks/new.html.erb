@@ -1,4 +1,5 @@
-<div class="container">
+<%= render "layouts/header"%>
+<div class="container mt-4">
   <h1>Bookmark movies!</h1>
   <%= simple_form_for([@list, @bookmark]) do |f| %>
     <%= f.association :movie, class: "form-control"%>

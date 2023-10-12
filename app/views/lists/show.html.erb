@@ -1,21 +1,35 @@
+<%= render "layouts/header"%>
 <div class="container">
-  <h1><%= @list.name %> movies</h1>
-  <%= link_to "Go back to home", lists_path, class: "btn btn-light" %>
-  <%= link_to "Bookmark movie", new_list_bookmark_path(@list), class: "btn btn-light" %>
-  <div class="cards mt-3">
-    <% @list.bookmarks.each do |bookmark| %>
-      <div class="card-trip">
-        <%= image_tag bookmark.movie.poster_url, alt: "poster" %>
-        <div class="card-trip-infos">
-          <h2><%= bookmark.movie.title %></h2>
-          <h2 class="card-trip-pricing">Rate: <%= bookmark.movie.rating %></h2>
-          <p class="card-trip-pricing">Overview: <%= bookmark.movie.overview %></p>
+  <h1 style="margin-top: 80px;"><%= @list.name %> movies</h1>
+  <div>
+    <%= link_to "Go back", lists_path, class: "hover-btn" %>
+    <%= link_to "Bookmark", new_list_bookmark_path(@list), class: "hover-btn mb-3" %>
+  </div>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="popular-movie-slider">
+      <%= image_tag bookmark.movie.poster_url, alt: "poster", class: "poster" %>
+      <div class="popular-movie-slider-content">
+        <div class="d-flex justify-content-between">
+          <p class="release">2017</p>
           <%= link_to "🗑️", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "ほんまに消してええんか？" } %>
-          <p>Comment</p>
-          <br>
-          <%= bookmark.comment %>
+        </div>
+        <h2 class="movie-name"><%= bookmark.movie.title %></h2>
+        <ul class="category">
+          <p>Science fiction</p>
+          <li>drama</li>
+          <li>action</li>
+        </ul>
+        <p class="desc"><%= bookmark.movie.overview %></p>
+        <div class="movie-info">
+          <i class="fa fa-clock-o"> &nbsp;&nbsp;&nbsp;<span>164 min.</span></i>
+          <i class="fa fa-volume-up"> &nbsp;&nbsp;&nbsp;<span>Subtitles</span></i>
+          <i class="fa fa-circle"> &nbsp;&nbsp;&nbsp;<span>Imdb: <b><%= bookmark.movie.rating %>/10</b></span></i>
+        </div>
+        <div class="movie-btns">
+          <button><i class="fa fa-play"></i> &nbsp; Watch trailer</button>
+          <button class="read-more"><i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i>&nbsp; Read comment</button>
         </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
